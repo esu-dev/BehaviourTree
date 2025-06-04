@@ -1,0 +1,18 @@
+{
+  "name": "behaviourTree.package-manager",
+  "version": "0.0.1",
+  "displayName": "Sample",
+  "description": "Sample",
+  "unity": "6000",
+  "dependencies": {
+  },
+  "keywords": [
+    "sample",
+    "test"
+  ],
+  "author": {
+    "name": "esu-dev",
+    "email": "esugamedev@gmail.com",
+    "url": "https://github.com/esu-dev"
+  }
+}
