@@ -7,45 +7,21 @@ using BehaviourTreeLib;
 
 public class CommonBehaviour
 {
-    public class TestAction : ActionClass
+    public abstract class CommonAction : ActionClass
     {
-        float _counter;
-        UnityAction<NodeState> _callback;
+        public override void Start() { }
 
-        public override void Start(UnityAction<NodeState> callback)
-        {
-            Debug.Log("Start");
+        public override void Update() { }
 
-            _counter = 0;
-            _callback = callback;
-        }
-
-        public override void Update()
-        {
-            Debug.Log("Update");
-
-            _counter += Time.deltaTime;
-            if (_counter >= 3)
-            {
-                _callback(NodeState.True);
-            }
-        }
-
-        public override void Stop()
-        {
-            Debug.Log("Stop");
-        }
+        public override void Stop() { }
     }
 
-    public class WaitOneFrame : ActionClass
+    public class WaitOneFrame : CommonAction
     {
-        UnityAction<NodeState> _callback;
         float _counter;
 
-        public override void Start(UnityAction<NodeState> callback)
+        public override void Start()
         {
-            _callback = callback;
-
             _counter = 0;
         }
 
@@ -53,7 +29,7 @@ public class CommonBehaviour
         {
             if (_counter++ > 0)
             {
-                _callback(NodeState.True);
+                base.Finish(NodeState.True);
             }
         }
 
@@ -63,18 +39,15 @@ public class CommonBehaviour
         }
     }
 
-    public class WaitSecond : ActionClass
+    public class WaitSecond : CommonAction
     {
         BT_Input<float> minTime;
         BT_Input<float> maxTime;
-        UnityAction<NodeState> _callback;
         float _waitTime;
         float _counter;
 
-        public override void Start(UnityAction<NodeState> callback)
+        public override void Start()
         {
-            _callback = callback;
-
             _waitTime = Random.Range(minTime.value, maxTime.value);
             _counter = 0;
         }
@@ -84,7 +57,7 @@ public class CommonBehaviour
             _counter += Time.deltaTime;
             if (_counter >= _waitTime)
             {
-                _callback(NodeState.True);
+                base.Finish(NodeState.True);
             }
         }
 

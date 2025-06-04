@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adea866b1273d741ad3ba5c391cd77c, type: 3}
+  m_Name: SampleBehaviourTree
+  m_EditorClassIdentifier: 
+  _nodeDataList:
+  - typeName: BehaviourTreeLib.RootNode
+    nodeTypeID: 0
+    id: root
+    parameterJSON: 
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 100
+      width: 73
+      height: 77
+    state: 0
+    outputIDList:
+    - 903bf66d2e2f4674ae1643ed433e41a4
+  - typeName: BehaviourTreeLib.ActionNode
+    nodeTypeID: 8
+    id: 6a57eee0d8f345c9a5aac57e535a7279
+    parameterJSON: '{"conditionNodeType":"","actionName":"MoveAction","actionClassName":"Moving+MoveAction","inputs":[{"value":"1","variableName":"","assetGUID":"","isDynamic":false},{"value":"0","variableName":"","assetGUID":"","isDynamic":false},{"value":"1","variableName":"","assetGUID":"","isDynamic":false}],"output":{"value":"","variableName":"","assetGUID":"","isDynamic":false},"inputs_int":[],"argument":[],"inputs_bool":[],"inputNames":[],"outputName":""}'
+    position:
+      serializedVersion: 2
+      x: 467
+      y: 8
+      width: 156
+      height: 152
+    state: 0
+    outputIDList: []
+  - typeName: BehaviourTreeLib.ActionNode
+    nodeTypeID: 8
+    id: 8b771687df224500bfdd3d7802115c59
+    parameterJSON: '{"conditionNodeType":"","actionName":"RotateAction","actionClassName":"Moving+RotateAction","inputs":[{"value":"360","variableName":"","assetGUID":"","isDynamic":false},{"value":"1","variableName":"","assetGUID":"","isDynamic":false}],"output":{"value":"","variableName":"","assetGUID":"","isDynamic":false},"inputs_int":[],"argument":[],"inputs_bool":[],"inputNames":[],"outputName":""}'
+    position:
+      serializedVersion: 2
+      x: 467
+      y: 183
+      width: 203
+      height: 132
+    state: 0
+    outputIDList: []
+  - typeName: BehaviourTreeLib.SimpleParallel
+    nodeTypeID: 3
+    id: 903bf66d2e2f4674ae1643ed433e41a4
+    parameterJSON: 
+    position:
+      serializedVersion: 2
+      x: 164
+      y: 100
+      width: 131
+      height: 77
+    state: 0
+    outputIDList:
+    - 6a57eee0d8f345c9a5aac57e535a7279
+    - 8b771687df224500bfdd3d7802115c59
+  _nodeDataListForLoad:
+  - typeName: BehaviourTreeLib.RootNode
+    nodeTypeID: 0
+    id: root
+    parameterJSON: 
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 100
+      width: 73
+      height: 77
+    state: 0
+    outputIDList:
+    - 903bf66d2e2f4674ae1643ed433e41a4
+  - typeName: BehaviourTreeLib.ActionNode
+    nodeTypeID: 8
+    id: 6a57eee0d8f345c9a5aac57e535a7279
+    parameterJSON: '{"conditionNodeType":"","actionName":"MoveAction","actionClassName":"Moving+MoveAction","inputs":[{"value":"1","variableName":"","assetGUID":"","isDynamic":false},{"value":"0","variableName":"","assetGUID":"","isDynamic":false},{"value":"1","variableName":"","assetGUID":"","isDynamic":false}],"output":{"value":"","variableName":"","assetGUID":"","isDynamic":false},"inputs_int":[],"argument":[],"inputs_bool":[],"inputNames":[],"outputName":""}'
+    position:
+      serializedVersion: 2
+      x: 467
+      y: 8
+      width: 156
+      height: 152
+    state: 0
+    outputIDList: []
+  - typeName: BehaviourTreeLib.ActionNode
+    nodeTypeID: 8
+    id: 8b771687df224500bfdd3d7802115c59
+    parameterJSON: '{"conditionNodeType":"","actionName":"RotateAction","actionClassName":"Moving+RotateAction","inputs":[{"value":"360","variableName":"","assetGUID":"","isDynamic":false},{"value":"1","variableName":"","assetGUID":"","isDynamic":false}],"output":{"value":"","variableName":"","assetGUID":"","isDynamic":false},"inputs_int":[],"argument":[],"inputs_bool":[],"inputNames":[],"outputName":""}'
+    position:
+      serializedVersion: 2
+      x: 467
+      y: 183
+      width: 203
+      height: 132
+    state: 0
+    outputIDList: []
+  - typeName: BehaviourTreeLib.SimpleParallel
+    nodeTypeID: 3
+    id: 903bf66d2e2f4674ae1643ed433e41a4
+    parameterJSON: 
+    position:
+      serializedVersion: 2
+      x: 164
+      y: 100
+      width: 131
+      height: 77
+    state: 0
+    outputIDList:
+    - 6a57eee0d8f345c9a5aac57e535a7279
+    - 8b771687df224500bfdd3d7802115c59
+  _blackbaordFieldTextList: []

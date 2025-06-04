@@ -1343,7 +1343,7 @@ namespace BehaviourTreeLib
             if (_objectField.value)
             {
                 parameter.inputs[0].value = JsonUtility.ToJson(_objectField.value);
-                parameter.inputs[0].assetPath = AssetDatabase.GetAssetPath(_objectField.value);
+                parameter.inputs[0].assetGUID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(_objectField.value));
             }
             return JsonUtility.ToJson(parameter);
         }
@@ -1354,7 +1354,7 @@ namespace BehaviourTreeLib
 
             if (parameter.inputs[0].value != "")
             {
-                _objectField.value = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(parameter.inputs[0].assetPath);
+                _objectField.value = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(AssetDatabase.GUIDToAssetPath(parameter.inputs[0].assetGUID));
             }
         }
     }

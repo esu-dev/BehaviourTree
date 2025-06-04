@@ -205,7 +205,7 @@ public class NodeParameter
     {
         public string value;
         public string variableName;
-        public string assetPath;
+        public string assetGUID;
         public bool isDynamic;
     }
 }

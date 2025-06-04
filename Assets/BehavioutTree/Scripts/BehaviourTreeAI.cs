@@ -995,7 +995,7 @@ namespace BehaviourTreeLib
 
                 ChangeState(NodeState.Running);
 
-                _actionClass.Start((NodeState state) =>
+                _actionClass.SetCalllback((NodeState state) =>
                 {
                     if (_updateCoroutine != null)
                     {
@@ -1005,6 +1005,7 @@ namespace BehaviourTreeLib
                     ChangeState(state);
                     callback(state);
                 });
+                _actionClass.Start();
 
                 _updateCoroutine = base.behaviourTreeAI.StartCoroutine(Update());
             }
@@ -1043,14 +1044,9 @@ namespace BehaviourTreeLib
 
     public class BT_Input<T> : InputBase
     {
-        public T value
-        {
-            get
-            {
-                return (T)valueFunc();
-            }
-        }
         public Func<T> valueFunc;
+
+        public T value => (T)valueFunc();
     }
 
     public class OutputBase
@@ -1068,23 +1064,36 @@ namespace BehaviourTreeLib
         public Action<T> returnFunc;
     }
 
-    public abstract class ActionClassBase
+    public abstract class BehaviourClassBase
     {
         public GameObject TargetObject { get; set; }
     }
 
-    public abstract class ConditionClass : ActionClassBase
+    public abstract class ConditionClass : BehaviourClassBase
     {
         public abstract bool Execute();
     }
 
-    public abstract class ActionClass : ActionClassBase
+    public abstract class ActionClass : BehaviourClassBase
     {
-        public abstract void Start(UnityAction<NodeState> callback);
+        public abstract void Start();
 
         public abstract void Update();
 
         public abstract void Stop();
+
+
+        Action<NodeState> _callback;
+
+        public void SetCalllback(Action<NodeState> callback)
+        {
+            _callback = callback;
+        }
+
+        public void Finish(NodeState nodeState)
+        {
+            _callback(nodeState);
+        }
     }
 
     public class BehaviourProperty : System.Attribute
